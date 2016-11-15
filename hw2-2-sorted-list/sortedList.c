@@ -1,4 +1,5 @@
 #include "sortedList.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 node_ptr create_node(int key, int data)
