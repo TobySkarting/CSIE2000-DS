@@ -18,6 +18,25 @@ int main()
 			else
 				insert_node(&first, create_node(key, data));
 			break;
+		case 2:
+			printf("1. pair 2. by key 3. by value:");
+			scanf("%d", &opcode);
+			if (opcode == 1)
+			{
+				scanf("%d%d", &key, &data);
+				delete(&first, key, data);
+			}
+			else if (opcode == 2)
+			{
+				scanf("%d", &key);
+				delete1(&first, key);
+			}
+			else
+			{
+				scanf("%d", &data);
+				delete2(&first, data);
+			}
+			break;
 		case 3:
 			scanf("%d%d", &key, &data);
 			printf("pos: %d\n", search_node(first, key, data));

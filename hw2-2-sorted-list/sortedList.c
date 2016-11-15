@@ -73,3 +73,47 @@ void print_list(node_ptr first)
 		first = first->next;
 	}
 }
+
+void delete_node(node_ptr *pnode)
+{
+	node_ptr node = *pnode;
+	*pnode = node->next;
+	free(node);
+}
+
+void delete(node_ptr *first, int key, int data)
+{
+	while (*first)
+	{
+		if (key < (*first)->key)
+			break;
+		if (key == (*first)->key && data == (*first)->data)
+			delete_node(first);
+		else
+			first = &(*first)->next;
+	}
+}
+
+void delete1(node_ptr *first, int key)
+{
+	while (*first)
+	{
+		if (key < (*first)->key)
+			break;
+		if (key == (*first)->key)
+			delete_node(first);
+		else
+			first = &(*first)->next;
+	}
+}
+
+void delete2(node_ptr *first, int data)
+{
+	while (*first)
+	{
+		if (data == (*first)->data)
+			delete_node(first);
+		else
+			first = &(*first)->next;
+	}
+}
